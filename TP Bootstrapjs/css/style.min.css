@@ -1,0 +1,179 @@
+.carousel,
+.carousel .carousel-inner,
+.carousel .carousel-inner .active,
+.carousel .carousel-inner .carousel-item,
+.view,
+body,
+html {
+  height: 100%
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, .2)
+}
+
+#tarifs {
+  min-height: 50vh;
+}
+
+.map-container-3 {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.map-container-3 iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.sup-reservation {
+  height: 15px;
+}
+
+
+
+#newsletter input {
+  width: 20em;
+}
+
+.page-footer,
+.top-nav-collapse {
+  background-color: #1C2331
+}
+
+#affiches ul li,
+.panier-show {
+  max-height: 60%;
+}
+
+.panier-scroll-limit {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.panier-show ul li {
+  list-style: none;
+}
+
+.dark-cell {
+  background-color: #2b2b2b;
+  color: #fff;
+  padding: 10px;
+  text-align: center
+}
+
+#panier-step-2{
+  display: none;
+}
+
+#panier-step-3{
+  display: none;
+}
+
+#panier-step-end{
+  display: none;
+}
+
+.light-cell {
+  padding: 10px;
+  text-align: center
+}
+
+.number-input input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.number-input input[type=number]::-webkit-inner-spin-button,
+.number-input input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.number-input {
+  margin-bottom: 3rem;
+}
+
+.number-input button {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+}
+
+.number-input button:before,
+.number-input button:after {
+  display: inline-block;
+  position: absolute;
+  content: '';
+  height: 2px;
+  transform: translate(-50%, -50%);
+}
+
+.number-input button.plus:after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.number-input input[type=number] {
+  text-align: center;
+}
+
+.number-input.number-input {
+  border: 1px solid #ced4da;
+  width: 10rem;
+  border-radius: .25rem;
+}
+
+.number-input.number-input button {
+  width: 2.6rem;
+  height: .7rem;
+}
+
+.number-input.number-input button.minus {
+  padding-left: 10px;
+}
+
+.number-input.number-input button:before,
+.number-input.number-input button:after {
+  width: .7rem;
+  background-color: #495057;
+}
+
+.number-input.number-input input[type=number] {
+  max-width: 4rem;
+  padding: .5rem;
+  border: 1px solid #ced4da;
+  border-width: 0 1px;
+  font-size: 1rem;
+  height: 2rem;
+  color: #495057;
+}
+
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color:transparent) {
+
+    .number-input.def-number-input.safari_only button:before,
+    .number-input.def-number-input.safari_only button:after {
+      margin-top: -.3rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 1054px) {
+  .navbar {
+    background-color: #1C2331
+  }
+
+  .boutons-affiche {
+    flex-direction: column;
+  }
+}

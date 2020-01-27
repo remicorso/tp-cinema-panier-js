@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Gaumont Multiplex - Mon Panier</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.min.css" rel="stylesheet">
+  <style type="text/css">
+    html,
+    body,
+    header,
+    .carousel {
+      height: 100%;
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+      .navbar:not(.top-nav-collapse) {
+        background: #1C2331 !important;
+      }
+    }
+  </style>
+</head>
+
+<body onload="afficherPanier(); afficherNumberPanier(); checkPanier();">
+
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html">
+        <strong>Gaumont Multiplex</strong>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Accueil
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#affiches">Films à l'affiche</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#tarifs">Avantages et Tarifs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Informations et Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#newsletter">Stay Tuned !</a>
+          </li>
+        </ul>
+
+
+
+
+      </div>
+      <a href="panier.html" class="panier-link text-white">
+        <i class="fa fa-cart-plus" style="color: #e7e7e7"></i>
+        <span></span>
+      </a>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!--Carousel Wrapper-->
+  <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+
+
+
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+
+      <!--First slide-->
+      <div class="carousel-item active">
+        <div class="view">
+
+          <!--Video source-->
+          <video class="video-intro" autoplay loop muted>
+            <source
+              src="https://media.istockphoto.com/videos/shattering-colorful-3d-shapes-with-slow-motion-animation-video-id462882880"
+              type="video/mp4">
+          </video>
+
+          <!-- Mask & flexbox options-->
+          <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div id="panier-step-1" class="d-flex flex-column panier-show text-center white-text mx-5 wow fadeIn">
+              <h1 class="mb-4 ">
+                <strong>Mon Panier</strong>
+              </h1>
+              <div class="panier-scroll-limit">
+                <ul>
+
+
+
+                </ul>
+              </div>
+              <div class="d-flex justify-content-center pt-4">
+                Total du Panier : <h4 class="ml-2"></h4>
+
+              </div>
+
+              <a id="panier-button" onclick="afficherStep2()" class="btn btn-success btn-lg rounded-0">Valider ma commande
+                <i class="fas fa-dollar-sign  ml-2"></i>
+              </a>
+            </div>
+
+
+            <div id="panier-step-2">
+              <h1 class="mb-4 ">
+                <strong>Informations sur l'acheteur</strong>
+              </h1>
+
+              <form id="form-step-2" onsubmit="afficherStep3();" >
+
+                <div class="d-flex flex-column justify-content-center">
+
+                  <div class="d-flex flex-column justify-content-center">
+                    <h6>Nom</h6>
+                    <input type="text" name="nom" class="form-control text-center rounded-0" required />
+                  </div>
+                  <div class="d-flex flex-column justify-content-center mt-2">
+                    <h6>Prénom</h6>
+                    <input type="text" name="prenom" class="form-control text-center rounded-0" required />
+                  </div>
+
+
+
+                  <div class="d-flex flex-column justify-content-center mt-2">
+                    <h6>Email</h6>
+                    <input id="mail" type="email" name="email" class="form-control text-center rounded-0" required />
+                    <span id="aideCourriel" class="text-danger"></span>
+                  </div>
+
+                  <div class="d-flex flex-column justify-content-center mt-2">
+                    <input  type="submit" class="btn btn-success btn-lg w-100 rounded-0 mx-auto" value="Étape Suivante">
+                      
+                    
+                  </div>
+
+                </div>
+
+
+              </form>
+
+
+
+            </div>
+
+            <div id="panier-step-3">
+              <h1 class="mb-4 ">
+                <strong>Informations sur l'acheteur</strong>
+              </h1>
+
+              <form id="form-step-3" onsubmit="afficherStepEnd(); confirmerPaiement();">
+
+                <div class="d-flex flex-column justify-content-center">
+
+                  <div class="d-flex">
+
+                  <div class="d-flex flex-column justify-content-center mr-1 w-100">
+                    <h6>Ville</h6>
+                    <input type="ville" class="form-control text-center rounded-0 " required />
+                  </div>
+                  <div class="d-flex flex-column justify-content-center w-100">
+                    <h6>Code Postale</h6>
+                    <input type="cp" class="form-control text-center rounded-0" required />
+                  </div>
+                </div>
+
+
+
+                  <div class="d-flex flex-column justify-content-center mt-2">
+                    <h6>Adresse</h6>
+                    <input type="adresse" class="form-control text-center rounded-0" required />
+                  </div>
+
+                  <hr>
+
+                  <div class="d-flex flex-column justify-content-center">
+                    <h5>Moyen de Paiement</h5>
+
+
+
+                    <div class="d-flex justify-content-center mt-2">
+
+                      <!-- PAIEMENT CB-->
+
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input " id="defaultInline1"
+                          name="inlineDefaultRadiosExample" checked>
+                        <label class="custom-control-label" for="defaultInline1">Carte Bleue Visa</label>
+                      </div>
+
+                      <!-- PAIEMENT PAYPAL-->
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="defaultInline2"
+                          name="inlineDefaultRadiosExample">
+                        <label class="custom-control-label" for="defaultInline2">Paypal</label>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="d-flex flex-column justify-content-center mt-2">
+                      <input  type="submit" class="btn btn-success btn-lg w-100 rounded-0 mx-auto" value="Confirmer Paiement">
+                  </div>
+
+                </div>
+
+
+              </form>
+
+
+
+            </div>
+
+
+            <div id="panier-step-end">
+                <h1 class="mb-4 ">
+                  <strong><i class="fa fa-check-circle mr-2 text-success"></i>Réservation effectuée</strong>
+                </h1>
+
+                <a href="img/mon-ticket.png" class="btn btn-success rounded-0"><i class="fa fa-download text-white"></i> Télécharger mon e-ticket</a>
+                <a href="index.html" class="btn btn-danger rounded-0"><i class="fa fa-arrow-circle-left text-white"></i> Retour à la page d'accueil</a>
+  
+                
+  
+  
+  
+              </div>
+            <!-- Content -->
+
+          </div>
+          <!-- Mask & flexbox options-->
+
+        </div>
+      </div>
+      <!--/First slide-->
+
+
+
+    </div>
+    <!--/.Slides-->
+
+
+
+  </div>
+  <!--/.Carousel Wrapper-->
+
+  <!--Main layout-->
+  <main>
+    <div class="container-fluid ">
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+  <!--Footer-->
+  <footer id="newsletter" class="page-footer text-center font-small wow fadeIn">
+
+    <!--Call to action-->
+
+
+    <h3 class="pt-4">S'inscrire à la Newsletter</h3>
+    <div class="d-flex flex-column justify-content-center">
+      <label for="exampleForm2">Veuillez entrer votre adresse email</label>
+      <div class="d-flex justify-content-center">
+        <input type="text" id="exampleForm2" class="form-control rounded-0 text-center">
+      </div>
+      <div class="d-flex justify-content-center mt-2">
+        <button type="text" id="exampleForm2" class="btn btn-info rounded-0 text-center">S'inscrire</button>
+      </div>
+    </div>
+
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+      <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+        <i class="fab fa-facebook-f mr-3"></i>
+      </a>
+
+      <a href="https://twitter.com/MDBootstrap" target="_blank">
+        <i class="fab fa-twitter mr-3"></i>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+        <i class="fab fa-youtube mr-3"></i>
+      </a>
+
+      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+        <i class="fab fa-instagram mr-3"></i>
+      </a>
+
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2019 Copyright
+      <a href="https://www.cinemaspathegaumont.com/"> Gaumont Multiplex </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->
+
+  <!-- SCRIPTS -->
+  <script type="text/javascript" src="js/panier.js"></script>
+  <script type="text/javascript" src="js/afficherNumberPanier.js"></script>
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+  </script>
+</body>
+
+</html>
